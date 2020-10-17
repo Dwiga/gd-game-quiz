@@ -16,6 +16,10 @@ public class User {
     String finished; // nomor soal yang sudah selesai
     int jmlsoal;
     
+    void setLevel(int level){
+        this.level = level;
+    }
+    
     void setFinished(String finished){
         this.finished = finished;
     }
@@ -36,9 +40,10 @@ public class User {
         this.jmlsoal = jml;
     }
     
-    void setAll(String nama, int poin, int level){
+    void setAll(String nama, int poin, int level, String finished){
         this.poin = poin;
         this.nama = nama;
         this.level = level;
+        this.finished = finished;
     }
 }

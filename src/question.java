@@ -8,9 +8,10 @@ import java.util.Scanner;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import org.json.JSONArray;
 import org.json.JSONObject;
+import java.util.*;
+import javax.swing.JOptionPane;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -44,18 +45,24 @@ public class question extends javax.swing.JFrame{
         return json;
     }
     
-    ArrayList<Integer> soal = new ArrayList<>();
     Random rn = new Random();
-    private int cariSoal(int n, int jum){
+    // recursion
+    private int cariSoal(int n, int jum, User user){
         int random = rn.nextInt(jum);
-        int nume = 0;
-        if(soal.contains(n)){
-            cariSoal(random, jum);
-        }else{
-            nume = n-1;
-            soal.add(nume);
+        
+        String[] fns = user.finished.split("");
+        ArrayList<String> f = new ArrayList<>();
+        for(int i = 0; i < fns.length; i++){
+            f.add(fns[i]);
         }
-        return nume;
+        
+        if(f.contains(""+n)){
+            cariSoal(random, jum, user);
+        }else{
+            user.setFinished(user.finished + n);
+            user.setNume(n);
+        }
+        return user.nume;
     }
     
     public question(User user){
@@ -89,7 +96,11 @@ public class question extends javax.swing.JFrame{
             @Override
             public void actionPerformed(ActionEvent arg0) {
                 if(benar.equals("A")){
-                    benar(user, user.nume);
+                    int poin = user.poin + 1;
+                    user.setPoin(poin);
+                    nuxt(user, user.nume, frame);
+                }else{
+                    nuxt(user, user.nume, frame);
                 }
             }
         });
@@ -104,6 +115,9 @@ public class question extends javax.swing.JFrame{
                 if(benar.equals("B")){
                     int poin = user.poin + 1;
                     user.setPoin(poin);
+                    nuxt(user, user.nume, frame);
+                }else{
+                    nuxt(user, user.nume, frame);
                 }
             }
         });
@@ -116,7 +130,11 @@ public class question extends javax.swing.JFrame{
             @Override
             public void actionPerformed(ActionEvent arg0) {
                 if(benar.equals("C")){
-                    System.out.println("Benar");
+                    int poin = user.poin + 1;
+                    user.setPoin(poin);
+                    nuxt(user, user.nume, frame);
+                }else{
+                    nuxt(user, user.nume, frame);
                 }
             }
         });
@@ -127,9 +145,25 @@ public class question extends javax.swing.JFrame{
         frame.add(c);
     }
     
-    private void benar(User user, int nume){
-        user.setFinished(user.finished + "," + nume);
-        String jwb[] = user.finished.split(",");
+    private void nuxt(User user, int nume, JFrame frame){
+        user.setFinished(user.finished + nume);
+        String jwb[] = user.finished.split("");
+        if(jwb.length == 3 || jwb.length == 6){
+            if(user.poin < 2){
+                JOptionPane.showMessageDialog(null, "Maaf " + user.nama + ", nilai anda kurang dari 2");
+                frame.dispose();
+            }else{
+                user.setLevel(user.level + 1);
+                user.setFinished("");
+            }
+            JOptionPane.showMessageDialog(null, "Selamat " + user.nama + ", anda masuk level " + user.level + " dengan nilai " + user.poin);
+        }
+        
+        int random = rn.nextInt(user.jmlsoal);
+        cariSoal(random, user.jmlsoal, user);
+        
+        question q = new question(user);
+        frame.dispose();
     }
     
 //    public static void main(String[] args) {

@@ -42,19 +42,24 @@ public class utama extends javax.swing.JFrame {
      * Creates new form utama
      */
     User user = new User();
-    ArrayList<Integer> soal = new ArrayList<>();
     Random rn = new Random();
     
-    private int cariSoal(int n, int jum){
+    private int cariSoal(int n, int jum, User user){
         int random = rn.nextInt(jum);
-        int nume = 0;
-        if(soal.contains(n)){
-            cariSoal(random, jum);
-        }else{
-            nume = n;
-            soal.add(nume);
+        
+        String[] fns = user.finished.split("");
+        ArrayList<String> f = new ArrayList<>();
+        for(int i = 0; i < fns.length; i++){
+            f.add(fns[i]);
         }
-        return nume;
+        
+        if(f.contains(n+"")){
+            cariSoal(random, jum, user);
+        }else{
+            user.setFinished(user.finished + n);
+            user.setNume(n);
+        }
+        return user.nume;
     }
     
     public utama() {
@@ -143,12 +148,13 @@ public class utama extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
         // TODO add your handling code here:
-        user.setAll(txtNama.getText(), 0, 1);
+        user.setAll(txtNama.getText(), 0, 1, "");
         JSONObject obj = new JSONObject(readJsonFromAssets());
         JSONObject data = obj.getJSONObject("data");
         JSONArray lvl = data.getJSONArray("level");
-        int random = rn.nextInt(lvl.getJSONObject(user.level-1).getJSONArray("soal").length());
-        int noal = cariSoal(random, lvl.getJSONObject(user.level-1).getJSONArray("soal").length());
+        user.setJml(lvl.getJSONObject(user.level-1).getJSONArray("soal").length());
+        int random = rn.nextInt(user.jmlsoal);
+        int noal = cariSoal(random, user.jmlsoal, user);
         user.setNume(noal);
         //System.out.println(lvl.getJSONObject(user.level-1).getJSONArray("soal").getJSONObject(0).getInt("no"));
         question q = new question(user);

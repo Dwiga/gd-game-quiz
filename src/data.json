@@ -66,44 +66,60 @@
             "soal": [
                 {
                     "no": 1,
-                    "q": "",
+                    "q": "Nama dosen Game Development anda",
                     "gambar": "",
-                    "true": "A",
+                    "true": "B",
                     "a": [{
                         "abjad": "A",
-                        "text": "",
+                        "text": "Taufiq Rachman",
                         "gambar": ""
                     },
                     {
                         "abjad": "B",
-                        "text": "",
+                        "text": "Prayudi lestantyo",
                         "gambar": ""
                     },
                     {
                         "abjad": "C",
-                        "text": "",
+                        "text": "Hari Budi",
                         "gambar": ""
                     }]
                 },
                 {
                     "no": 2,
-                    "q": "",
+                    "q": "Tempat anda kuliah",
                     "gambar": false,
                     "true": "A",
                     "a": [{
                         "abjad": "A",
-                        "text": "",
+                        "text": "STT Stikma",
+                        "gambar": ""
+                    },{
+                        "abjad": "B",
+                        "text": "UB",
+                        "gambar": ""
+                    },{
+                        "abjad": "C",
+                        "text": "UM",
                         "gambar": ""
                     }]
                 },
                 {
                     "no": 3,
-                    "q": "",
+                    "q": "Dimana letak STT Stikma",
                     "gambar": "",
-                    "true": "A",
+                    "true": "C",
                     "a": [{
                         "abjad": "A",
-                        "text": "",
+                        "text": "Jakarta",
+                        "gambar": ""
+                    },{
+                        "abjad": "B",
+                        "text": "Melbourne",
+                        "gambar": ""
+                    },{
+                        "abjad": "C",
+                        "text": "Malang",
                         "gambar": ""
                     }]
                 }
