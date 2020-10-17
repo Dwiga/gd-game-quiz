@@ -10,9 +10,38 @@
  */
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import java.io.ByteArrayInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.File;
+import java.util.Scanner;
+import jdk.xml.internal.SecuritySupport;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 public class utama extends javax.swing.JFrame {
-
+    
+    public String readJsonFromAssets(){
+        String json = null;
+        try {
+            String dir = System.getProperty("user.dir") + "\\src\\data.json";
+            File jsn = new File(dir);
+            Scanner sc = new Scanner(jsn);
+            String data = "";
+            while (sc.hasNextLine()){
+                data += sc.nextLine();
+            }
+            json = data;
+            sc.close();
+        } catch (IOException ex) {
+            ex.printStackTrace();
+            return null;
+        }
+        return json;
+    }
+    
     /**
      * Creates new form utama
      */
@@ -104,9 +133,11 @@ public class utama extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
         // TODO add your handling code here:
-        tanya1 a = new tanya1();
         user.setAll(txtNama.getText(), 0, 1);
-        a.setVisible(true);
+        JSONObject obj = new JSONObject(readJsonFromAssets());
+        JSONObject data = obj.getJSONObject("data");
+        System.out.println(data);
+        question q = new question(user);
         dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -147,13 +178,11 @@ public class utama extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new utama().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new utama().setVisible(true);
         });
     }
-
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;

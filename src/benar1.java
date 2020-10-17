@@ -95,9 +95,9 @@ public class benar1 extends javax.swing.JFrame {
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         // TODO add your handling code here:
-        tanya2 a = new tanya2();
-        a.setVisible(true);
-        dispose();
+//        tanya2 a = new tanya2();
+//        a.setVisible(true);
+//        dispose();
     }//GEN-LAST:event_jButton1MouseClicked
 
     /**

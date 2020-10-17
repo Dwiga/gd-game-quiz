@@ -12,6 +12,7 @@ public class User {
     String nama;
     int poin;
     int level;
+    int nume[];
     
     void setNama(String nama){
         this.nama = nama;
@@ -19,6 +20,10 @@ public class User {
     
     void setPoin(int poin){
         this.poin = poin;
+    }
+    
+    void setNume(int[] nume){
+        this.nume = nume;
     }
     
     void setAll(String nama, int poin, int level){
