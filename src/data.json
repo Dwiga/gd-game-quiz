@@ -4,44 +4,60 @@
             "soal": [
                 {
                     "no": 1,
-                    "q": "",
+                    "q": "Tanda baca yang digunakan untuk mengakhiri suatu baris kode dalam bahasa pemrograman JAVA",
                     "gambar": "",
-                    "true": "A",
+                    "true": "C",
                     "a": [{
                         "abjad": "A",
-                        "text": "",
+                        "text": ": (titik dua)",
                         "gambar": ""
                     },
                     {
                         "abjad": "B",
-                        "text": "",
+                        "text": ".. (titik titik)",
                         "gambar": ""
                     },
                     {
                         "abjad": "C",
-                        "text": "",
+                        "text": "; (titik koma)",
                         "gambar": ""
                     }]
                 },
                 {
                     "no": 2,
-                    "q": "",
+                    "q": "Kepanjangan dari OOP adalah",
                     "gambar": false,
                     "true": "A",
                     "a": [{
                         "abjad": "A",
-                        "text": "",
+                        "text": "Object Oriented Programming",
+                        "gambar": ""
+                    },{
+                        "abjad": "B",
+                        "text": "Pemrograman Berorientasi Object",
+                        "gambar": ""
+                    },{
+                        "abjad": "C",
+                        "text": "Semua benul",
                         "gambar": ""
                     }]
                 },
                 {
                     "no": 3,
-                    "q": "",
+                    "q": "Mana yang bukan termasuk bahasa pemrograman",
                     "gambar": "",
-                    "true": "A",
+                    "true": "B",
                     "a": [{
                         "abjad": "A",
-                        "text": "",
+                        "text": "Python",
+                        "gambar": ""
+                    },{
+                        "abjad": "B",
+                        "text": "CSS",
+                        "gambar": ""
+                    },{
+                        "abjad": "C",
+                        "text": "Ruby",
                         "gambar": ""
                     }]
                 }
