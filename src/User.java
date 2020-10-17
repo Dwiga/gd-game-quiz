@@ -9,10 +9,15 @@
  * @author dwihy
  */
 public class User {
-    String nama;
-    int poin;
-    int level;
-    int nume[];
+    String nama; // nama user
+    int poin; // poin benar
+    int level; // level user 
+    int nume; // nomor soal
+    String finished; // nomor soal yang sudah selesai
+    
+    void setFinished(String finished){
+        this.finished = finished;
+    }
     
     void setNama(String nama){
         this.nama = nama;
@@ -22,7 +27,7 @@ public class User {
         this.poin = poin;
     }
     
-    void setNume(int[] nume){
+    void setNume(int nume){
         this.nume = nume;
     }
     

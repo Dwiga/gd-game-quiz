@@ -1,49 +1,97 @@
 {
     "data": {
-        "level": [
-            {
-                "no": 1,
-                "q": "",
-                "gambar": "",
-                "true": "A",
-                "a": [{
-                    "abjad": "A",
-                    "text": "",
-                    "gambar": ""
+        "level": [{
+            "soal": [
+                {
+                    "no": 1,
+                    "q": "",
+                    "gambar": "",
+                    "true": "A",
+                    "a": [{
+                        "abjad": "A",
+                        "text": "",
+                        "gambar": ""
+                    },
+                    {
+                        "abjad": "B",
+                        "text": "",
+                        "gambar": ""
+                    },
+                    {
+                        "abjad": "C",
+                        "text": "",
+                        "gambar": ""
+                    }]
                 },
                 {
-                    "abjad": "B",
-                    "text": "",
-                    "gambar": ""
+                    "no": 2,
+                    "q": "",
+                    "gambar": false,
+                    "true": "A",
+                    "a": [{
+                        "abjad": "A",
+                        "text": "",
+                        "gambar": ""
+                    }]
                 },
                 {
-                    "abjad": "C",
-                    "text": "",
-                    "gambar": ""
-                }]
-            },
-            {
-                "no": 2,
-                "q": "",
-                "gambar": false,
-                "true": "A",
-                "a": [{
-                    "abjad": "A",
-                    "text": "",
-                    "gambar": ""
-                }]
-            },
-            {
-                "no": 3,
-                "q": "",
-                "gambar": "",
-                "true": "A",
-                "a": [{
-                    "abjad": "A",
-                    "text": "",
-                    "gambar": ""
-                }]
-            }
-        ]
+                    "no": 3,
+                    "q": "",
+                    "gambar": "",
+                    "true": "A",
+                    "a": [{
+                        "abjad": "A",
+                        "text": "",
+                        "gambar": ""
+                    }]
+                }
+            ]
+        },{
+            "soal": [
+                {
+                    "no": 1,
+                    "q": "",
+                    "gambar": "",
+                    "true": "A",
+                    "a": [{
+                        "abjad": "A",
+                        "text": "",
+                        "gambar": ""
+                    },
+                    {
+                        "abjad": "B",
+                        "text": "",
+                        "gambar": ""
+                    },
+                    {
+                        "abjad": "C",
+                        "text": "",
+                        "gambar": ""
+                    }]
+                },
+                {
+                    "no": 2,
+                    "q": "",
+                    "gambar": false,
+                    "true": "A",
+                    "a": [{
+                        "abjad": "A",
+                        "text": "",
+                        "gambar": ""
+                    }]
+                },
+                {
+                    "no": 3,
+                    "q": "",
+                    "gambar": "",
+                    "true": "A",
+                    "a": [{
+                        "abjad": "A",
+                        "text": "",
+                        "gambar": ""
+                    }]
+                }
+            ]
+        }]
     }
 }

@@ -10,16 +10,12 @@
  */
 import java.awt.Dimension;
 import java.awt.Toolkit;
-import java.io.ByteArrayInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.File;
 import java.util.Scanner;
-import jdk.xml.internal.SecuritySupport;
 import org.json.JSONArray;
 import org.json.JSONObject;
+import java.util.*;
 
 public class utama extends javax.swing.JFrame {
     
@@ -46,6 +42,20 @@ public class utama extends javax.swing.JFrame {
      * Creates new form utama
      */
     User user = new User();
+    ArrayList<Integer> soal = new ArrayList<>();
+    Random rn = new Random();
+    
+    private int cariSoal(int n, int jum){
+        int random = rn.nextInt(jum);
+        int nume = 0;
+        if(soal.contains(n)){
+            cariSoal(random, jum);
+        }else{
+            nume = n;
+            soal.add(nume);
+        }
+        return nume;
+    }
     
     public utama() {
         initComponents();
@@ -136,7 +146,11 @@ public class utama extends javax.swing.JFrame {
         user.setAll(txtNama.getText(), 0, 1);
         JSONObject obj = new JSONObject(readJsonFromAssets());
         JSONObject data = obj.getJSONObject("data");
-        System.out.println(data);
+        JSONArray lvl = data.getJSONArray("level");
+        int random = rn.nextInt(lvl.getJSONObject(user.level-1).getJSONArray("soal").length());
+        int noal = cariSoal(random, lvl.getJSONObject(user.level-1).getJSONArray("soal").length());
+        user.setNume(noal);
+        //System.out.println(lvl.getJSONObject(user.level-1).getJSONArray("soal").getJSONObject(0).getInt("no"));
         question q = new question(user);
         dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
